@@ -15,7 +15,8 @@ set shiftwidth=4
 set expandtab
 
 " set colorscheme -- files located in dependencies
-colorscheme deus
+filetype plugin indent on
+colorscheme perun
 syntax on
 
 " for vundle plugins
@@ -31,6 +32,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 " https://github.com/Valloric/YouCompleteMe
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'dylanaraps/wal'
 
 call vundle#end()
 filetype plugin indent on
@@ -40,13 +42,16 @@ autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 
 " nerdtree mods
+nmap <F6> :NERDTreeToggle<CR>
+set splitright
+let NERDTreeShowHidden = 1
 let NERDTreeMirror = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeQuitOnOpen = 1
 let NERDTreeWinPos = "left"
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-let NERDChristmasTree = 1
+let NERDChristmasTree = 0
 
 " syntastic mods
 set statusline+=%#warningmsg#
@@ -57,12 +62,3 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
-" Ultisnips mods https://github.com/sirver/UltiSnips
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
