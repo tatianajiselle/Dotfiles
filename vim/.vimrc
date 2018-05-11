@@ -15,7 +15,7 @@ set shiftwidth=4
 set expandtab
 
 " set colorscheme -- files located in dependencies
-colorscheme northpole
+colorscheme deus
 syntax on
 
 " for vundle plugins
