@@ -5,7 +5,7 @@ if has('win32') || has('win64')
      set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
   endif
  
-" install pathogen plugins (nerdtree)
+" install pathogen plugins (nerdtree,syntastical)
 execute pathogen#infect()
  
 " the basics -- u better like tabs.
@@ -21,7 +21,7 @@ set mouse=a
 set term=xterm
 set t_Co=256
 filetype plugin indent on
-colorscheme zenburn
+colorscheme wal
 syntax on
  
 " for vundle plugins
@@ -37,9 +37,17 @@ Plugin 'honza/vim-snippets'
 " https://github.com/Valloric/YouCompleteMe
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'dylanaraps/wal'
+Plugin 'tomlion/vim-solidity'
+Plugin 'itchyny/lightline.vim'
  
 call vundle#end()
 filetype plugin indent on
+
+" remove old --INSERT-- duplicated from lightline
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ }
  
 " open nerdtree on open
 autocmd VimEnter * NERDTree
@@ -62,6 +70,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
  
+let g:syntastic_solidity_checkers = ['solhint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
